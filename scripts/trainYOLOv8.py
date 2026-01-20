@@ -1,9 +1,3 @@
-"""
-trainYOLOv8.py
----------------
-Defines YOLOv8 training workflow using OOP principles.
-"""
-
 from ultralytics import YOLO
 
 class YOLOTrainer:
@@ -21,15 +15,15 @@ class YOLOTrainer:
 			batch=batch,
 			name=modelName
 		)
-		print(f"✅ Training completed: {modelName}")
+		print(f"Training completed: {modelName}")
 		return results
 
 	def trainPipeline(self):
 		"""Run full pipeline: base training + fine-tuning."""
-		print("🚀 Starting COCO training...")
+		print("Starting COCO training...")
 		self.trainModel("data/coco.yaml", epochs=20, batch=16, modelName="yolov8CocoBase")
 
-		print("\n🔧 Fine-tuning on KITTI dataset...")
+		print("Fine-tuning on KITTI dataset...")
 		self.trainModel("data/kitti.yaml", epochs=10, batch=8, modelName="yolov8KittiFinetune")
 
 if __name__ == "__main__":

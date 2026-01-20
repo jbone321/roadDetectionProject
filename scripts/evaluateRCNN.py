@@ -1,13 +1,3 @@
-"""
-evaluateFasterRCNN.py
----------------------
-Evaluates a trained Faster R-CNN model using COCO-style datasets.
-Performs inference, visualizes predictions, and computes mAP automatically.
-
-Requirements:
-	torch, torchvision, matplotlib, pycocotools
-"""
-
 import os
 import json
 import torch

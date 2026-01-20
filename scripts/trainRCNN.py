@@ -1,16 +1,3 @@
-"""
-scripts/trainFasterRCNN.py
---------------------------
-OOP Faster R-CNN training script using PyTorch / torchvision.
-
-Usage:
-	python scripts/trainFasterRCNN.py --dataRoot data/coco --annFile data/coco/annotations/instances_train2017.json --valAnnFile data/coco/annotations/instances_val2017.json
-
-Notes:
-	- Expects COCO-format annotations. Convert KITTI -> COCO if using KITTI.
-	- Requires: torch, torchvision, pycocotools (optional but recommended), albumentations (optional).
-"""
-
 import os
 import time
 import argparse
@@ -45,7 +32,7 @@ class CocoFormatDataset(Dataset):
 	def __getitem__(self, idx):
 		img, ann = self.coco[idx]
 		# convert annotations to tensors expected by detection models
-		# filter out annotations with 'iscrowd' or invalid boxes
+		# filter out annotations with "iscrowd" or invalid boxes
 		boxes = []
 		labels = []
 		areas = []

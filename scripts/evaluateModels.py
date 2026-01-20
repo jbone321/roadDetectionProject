@@ -1,9 +1,3 @@
-"""
-evaluateModels.py
------------------
-Evaluates trained YOLOv8 models and visualizes detection results.
-"""
-
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
 
@@ -17,10 +11,10 @@ class ModelEvaluator:
 	def evaluateModel(self):
 		"""Run model validation and print key metrics."""
 		metrics = self.model.val(data=self.datasetYaml)
-		print("\n📊 Evaluation Summary:")
-		print(f"mAP50: {metrics.box.map50:.4f}")
-		print(f"mAP50-95: {metrics.box.map:.4f}")
-		print(f"Inference Speed: {metrics.speed['inference']:.2f} ms/img")
+		print("Evaluation Summary:")
+		print(f"mAP50: {metrics.box.map50:.4f}") # Mean Average Precision at IoU=0.5
+		print(f"mAP50-95: {metrics.box.map:.4f}") # Mean Average Precision at IoU=0.5:0.95
+		print(f"Inference Speed: {metrics.speed["inference"]:.2f} ms/img") # Inference speed
 		return metrics
 
 	def visualizePredictions(self, samplePath):
